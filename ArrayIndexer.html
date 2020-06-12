@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Array Index</title>
+<meta charset="UTF-8">
+  <meta name="description" content="Array Index Pagination">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Akhil Abothu">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+<div id="app">
+	
+	
+	 <p>{{ itemData[index].itemId }}-------------<strong>{{ itemData[index].name }}</strong></p>
+	
+	<button v-on:click="prev">Prev</button>
+	<button v-on:click="next">Next</button>
+	
+	
+	</div>
+</div>
+<script>
+var app = new Vue({
+el: "#app",
+	data:{
+		itemData:[{itemId:10001,name:'item A'},
+		{itemId:10003,name:'item B'},
+		{itemId:10005,name:'item C'},
+		{itemId:10008,name:'item D'},
+		{itemId:10009,name:'item E'},
+		{itemId:10010,name:'item F'}],
+		index: 0,
+	},
+	 methods: {
+        next: function() {
+            if (this.index+1 < this.itemData.length) {
+                this.index++;
+            }
+        },
+			prev:function() {
+			if(!(this.index==0))
+			{
+			this.index--;
+			}
+			}
+    },
+})
+
+</script>
+</body>
+</html>
